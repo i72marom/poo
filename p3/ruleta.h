@@ -10,7 +10,9 @@
 
 	#include "crupier.h"
 	#include "jugador.h"
+	#include <ctime> // C Time Library. This header file contains definitions of functions to get and manipulate date and time information. http://www.cplusplus.com/reference/ctime
 	#include <algorithm> // define funciones para ser usadas en un rango de elementos http://www.cplusplus.com/reference/algorithm/
+	
 
 	class Ruleta {
 		private:
@@ -73,6 +75,9 @@
 			// El método void leeJugadores() lee los datos de los jugadores del fichero jugadores.txt y los mete en la lista 
 			// de jugadores. La lista de jugadores se borra antes de añadir los jugadores del fichero jugadores.txt
 			void leeJugadores();
+
+			// El método void giraRuleta() simula el giro de la ruleta y la obtención de un número aleatorio entre 0 y 36.
+			inline void giraRuleta() { setBola(rand()%37); }
 	};
 
 #endif

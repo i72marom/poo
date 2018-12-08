@@ -142,7 +142,7 @@ TEST(Ruleta, escribeLeeJugadores) {
   EXPECT_EQ("jugador2", (--r2.getJugadores().end())->getCodigo());
 }
 
-/*TEST(Ruleta, giraRuleta) {
+TEST(Ruleta, giraRuleta) {
   Crupier c("33XX","crupier1");
   Ruleta r(c);
   for (int i=0;i<100;i++){
@@ -152,7 +152,7 @@ TEST(Ruleta, escribeLeeJugadores) {
   }
 }
 
-TEST(Ruleta, getPremios) {
+/*TEST(Ruleta, getPremios) {
   Crupier c("33XX","crupier1");
   Jugador j1("44XX","jugador1");
   Jugador j2("55XX","jugador2");
