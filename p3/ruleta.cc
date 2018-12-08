@@ -19,12 +19,18 @@ bool Ruleta::addJugador(Jugador jugador) {
 	// find busca dentro del iterador y devuelve el valor de la primera coincidencia
 	// si no encuentra nada devuelve la ultima posicion
 	list <Jugador> :: iterator it;
-	it = find(jugadores_.begin(), jugadores_.end(), jugador); // begin indica el principio de la lista, end el final y jugador es lo que busca 
-	if (it->getDNI() == jugador.getDNI()) { return false; }
+
+	for (it = jugadores_.begin(); it != jugadores_.end(); it++) {
+		if (it->getDNI() == jugador.getDNI()) { return false; }
+	}
+
 	jugadores_.push_back(jugador); // push_back añade un elemento al final de la lista
 
-	// abre un fichero y lo asocia al flujo de entrada
-	ifstream fichero_entrada(jugador.getDNI()+".txt"); 
+	string playerFile = jugador.getDNI()+".txt";
+
+	// ifstream abre un fichero y lo asocia al flujo de entrada
+	// c_str() convierte el objeto string a un puntero c-string
+	ofstream fichero_entrada(playerFile.c_str()); 
 	fichero_entrada.close();
 
 	return true;
@@ -64,4 +70,38 @@ void Ruleta::escribeJugadores() {
 		f << it->getPais() + ",";
 		f << it->getDinero() + "\n";
 	}
+}
+
+void Ruleta::leeJugadores() {
+	char dni[20], codigo[20], nombre[20], apellidos[20], edad[20], direccion[20], localidad[20], provincia[20], pais[20];
+	jugadores_.clear(); // clear (list) elimina el contenido de una lista
+	string nomFich = "jugadores.txt";
+
+	ifstream inputFile(nomFich); // abre un fichero y lo asocia al flujo de entrada
+
+	// is_open() devuelve true si el fichero se ha abierto y se ha asociado al flujo de entrada
+	if (!inputFile.is_open()) { cout << "Error al abrir el fichero.\n"; exit(-1); }
+
+	// con inputFile.getline() se guarda lo leido en la variable
+	while(inputFile.getline(dni, 20, ',')) { // getline devuelve false si ha acabado el fichero
+		inputFile.getline(codigo, 20, ',');
+		inputFile.getline(nombre, 20, ',');
+		inputFile.getline(apellidos, 20, ',');
+		inputFile.getline(edad, 20, ',');
+		inputFile.getline(direccion, 20, ',');
+		inputFile.getline(localidad, 20, ',');
+		inputFile.getline(provincia, 20, ',');
+		inputFile.getline(pais, 20, '\n');
+
+		// se declara un objeto jugador pasandole como parametro los valores leidos en el fichero
+		// con atoi() se convierten los char a int
+		Jugador jugador(dni, codigo, nombre, apellidos, atoi(edad), direccion, localidad, provincia, pais);
+
+		// push_back añade la el elemento recibido al final de la lista
+		jugadores_.push_back(jugador);
+	}
+
+	// close() cierra el fichero
+	// open() se usa para abrir el fichero en caso de que ifstream no reciba el nombre del fichero
+	inputFile.close();
 }

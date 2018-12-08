@@ -23,7 +23,7 @@
 			// modificadores: establecen un nuevo valor para cada variable.
 			// inline indica al compilador que debe sustituir la llamada a una funcion
 			// por el codigo de la misma cada vez que se realice dicha llamada
-			inline void setDni(string dni) { dni_ = dni; }
+			inline void setDNI(string dni) { dni_ = dni; }
 			inline void setNombre(string nombre) { nombre_ = nombre; }
 			inline void setApellidos(string apellidos) { apellidos_ = apellidos; }
 			inline void setDireccion(string direccion) { direccion_ = direccion; }

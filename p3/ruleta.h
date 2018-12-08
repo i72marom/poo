@@ -10,7 +10,6 @@
 
 	#include "crupier.h"
 	#include "jugador.h"
-	#include <list> // clase perteneciente a la stl (standard template library) http://www.cplusplus.com/reference/stl/
 	#include <algorithm> // define funciones para ser usadas en un rango de elementos http://www.cplusplus.com/reference/algorithm/
 
 	class Ruleta {
@@ -25,7 +24,7 @@
 			inline int getBanca() { return banca_; }
 			inline int getBola() { return bola_; }
 			inline Crupier getCrupier() { return crupier_; }
-			inline list <Jugador> getJugador() { return jugadores_; }
+			inline list <Jugador> getJugadores() { return jugadores_; }
 
 			// modificadores
 			inline void setCrupier(Crupier crupier) { crupier_ = crupier; }
@@ -70,6 +69,10 @@
 			//		DNI,código,nombre,apellidos,,,,,dinero
 			// recordar que DNI y código de jugador es obligatorio en Jugador
 			void escribeJugadores();
+
+			// El método void leeJugadores() lee los datos de los jugadores del fichero jugadores.txt y los mete en la lista 
+			// de jugadores. La lista de jugadores se borra antes de añadir los jugadores del fichero jugadores.txt
+			void leeJugadores();
 	};
 
 #endif
