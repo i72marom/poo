@@ -1,11 +1,7 @@
 // Juego.cc
 // contiene la funcion principal del programa
-
-#include <iostream>
-#include <cstdlib>
 #include "dados.h"
 
-using namespace std;
 
 int main() {
 	Dados dados;
@@ -47,10 +43,10 @@ int main() {
 		}
 
 		char salida;
-		cout << "¿Desea dejar de realizar lanzamientos? (y/n): ";
+		cout << "¿Desea continuar lanzando? (y/n): ";
 		cin >> salida;
 		while (salida != 'n' && salida != 'y') { 
-			cout << salida << " no es una opcion reconocida. ¿Desea dejar de realizar lanzamientos? (y/n): ";
+			cout << salida << " no es una opcion reconocida. ¿Desea continuar lanzando? (y/n): ";
 			cin >> salida;
 		}
 		if (salida == 'n') { break; }
@@ -80,7 +76,7 @@ int main() {
 		if (i != 4) { cout << ", "; }
 		else { cout << "\n"; }
 	}
-	cout << "\tdado1: ";
+	cout << "\tdado2: ";
 	for (int i = 0; i < 5; i++) {
 		cout << v_dado2[i];
 		if (i != 4) { cout << ", "; }

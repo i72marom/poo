@@ -91,17 +91,17 @@ float Dados::getMedia2() {
 }
 
 void Dados::rellenaVector1() {
-	for (int i = 0; i < 4; i++) {
-		v1_[i] = v1_[i+1];
+	for (int i = 4; i > 0; i--) {
+		v1_[i] = v1_[i-1];
 	}
-	v1_[4] = dado1_;
+	v1_[0] = dado1_;
 }
 
 void Dados::rellenaVector2() {
-	for (int i = 0; i < 4; ++i) {
-		v2_[i] = v2_[i+1];
+	for (int i = 4; i > 0; i--) {
+		v2_[i] = v2_[i-1];
 	}
-	v2_[4] = dado2_;
+	v2_[0] = dado2_;
 }
 
 void Dados::getUltimos1(int *v) {

@@ -156,6 +156,8 @@ TEST(Dados, getUltimos1) {
   d.getUltimos2(v2);
   for (i=0;i<5;i++) EXPECT_EQ(5-i,v1[i]);
   for (i=0;i<5;i++) EXPECT_EQ(5-i,v2[i]);
+
+
 }
 
 TEST(Dados, getUltimos2) {

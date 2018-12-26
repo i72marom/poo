@@ -1,5 +1,10 @@
 #ifndef DADOS_H
 #define DADOS_H
+
+	#include <iostream>
+	#include <cstdlib>
+
+	using namespace std;
 	
 	class Dados {
 		private:
